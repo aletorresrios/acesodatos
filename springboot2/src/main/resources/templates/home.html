@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lista de Alumnos</title>
+    </head>
+    <body>
+        <h1>CLASE 2º DAM</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Edad</th>
+                    <th>DNI</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr th:each="alumno : ${alumnos}">
+                <td th:text="${alumno.id}"></td>
+                <td th:text="${alumno.nombre}"></td>
+                <td th:text="${alumno.apellido}"></td>
+                <td th:text="${alumno.edad}"></td>
+                <td th:text="${alumno.dni}"></td>
+            </tr>
+        </table>
+        <p><a th:href="@{/nuevo}">Añadir Nuevo Alumno</a></p>
+    </body>
+</html>
