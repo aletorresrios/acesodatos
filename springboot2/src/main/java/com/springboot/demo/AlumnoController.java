@@ -6,10 +6,15 @@ package com.springboot.demo;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
 
 /**
  *
@@ -27,8 +32,9 @@ public class AlumnoController {
         return "redirect:/";
     }
     @GetMapping("/")
-    public String listaPersonas(Model model) {
-        List<Alumno> alumnos = alumnorepository.findAll();
+    public String listaPersonas(Model model,@PageableDefault(size=5) Pageable p) {
+        
+        Page<Alumno> alumnos = alumnorepository.findAll(p);
         model.addAttribute("alumnos", alumnos);
         return "home";
     }

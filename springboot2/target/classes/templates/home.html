@@ -16,14 +16,17 @@
                 </tr>
             </thead>
             <tbody>
-            <tr th:each="alumno : ${alumnos}">
-                <td th:text="${alumno.id}"></td>
-                <td th:text="${alumno.nombre}"></td>
-                <td th:text="${alumno.apellido}"></td>
-                <td th:text="${alumno.edad}"></td>
-                <td th:text="${alumno.dni}"></td>
-            </tr>
+                <tr th:each="alumno : ${alumnos}">
+                    <td th:text="${alumno.id}"></td>
+                    <td th:text="${alumno.nombre}"></td>
+                    <td th:text="${alumno.apellido}"></td>
+                    <td th:text="${alumno.edad}"></td>
+                    <td th:text="${alumno.dni}"></td>
+                </tr>
         </table>
         <p><a th:href="@{/formulario}">Añadir Nuevo Alumno</a></p>
+        <nav>
+            <ul class="pagination" sd:pagination="pager"></ul>
+        </nav>
     </body>
 </html>
