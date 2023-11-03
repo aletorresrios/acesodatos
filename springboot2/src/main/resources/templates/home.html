@@ -22,9 +22,14 @@
                     <td th:text="${alumno.apellido}"></td>
                     <td th:text="${alumno.edad}"></td>
                     <td th:text="${alumno.dni}"></td>
+                    <td>
+                        <a th:href="@{/eliminar/{id}(id=${alumno.id})}">Eliminar</a>
+                        <a th:href="@{/editar/{id}(id=${alumno.id})}">Editar</a>
+                    </td>
                 </tr>
         </table>
         <p><a th:href="@{/formulario}">Añadir Nuevo Alumno</a></p>
+        
         <nav>
             <ul class="pagination" sd:pagination="pager"></ul>
         </nav>
